@@ -1,25 +1,45 @@
-import './App.css'
+import { Card, Container } from './components'
 import React from 'react'
-import logo from './logo.svg'
 
 function App(): React.ReactElement {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Card
+        title='Baby Driver'
+        banner='https://m.media-amazon.com/images/M/MV5BMjM3MjQ1MzkxNl5BMl5BanBnXkFtZTgwODk1ODgyMjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
+        country='EUA'
+        filmDirector='N'
+        year='2019'
+      />
+      <Card
+        title='Baby Driver'
+        banner='https://m.media-amazon.com/images/M/MV5BMjM3MjQ1MzkxNl5BMl5BanBnXkFtZTgwODk1ODgyMjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
+        country='EUA'
+        filmDirector='N'
+        year='2019'
+      />
+      <Card
+        title='Baby Driver'
+        banner='https://m.media-amazon.com/images/M/MV5BMjM3MjQ1MzkxNl5BMl5BanBnXkFtZTgwODk1ODgyMjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
+        country='EUA'
+        filmDirector='N'
+        year='2019'
+      />
+      <Card
+        title='Baby Driver'
+        banner='https://m.media-amazon.com/images/M/MV5BMjM3MjQ1MzkxNl5BMl5BanBnXkFtZTgwODk1ODgyMjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
+        country='EUA'
+        filmDirector='N'
+        year='2019'
+      />
+      <Card
+        title='Baby Driver'
+        banner='https://m.media-amazon.com/images/M/MV5BMjM3MjQ1MzkxNl5BMl5BanBnXkFtZTgwODk1ODgyMjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg'
+        country='EUA'
+        filmDirector='N'
+        year='2019'
+      />
+    </Container>
   )
 }
 
