@@ -29,7 +29,7 @@
     },
     "rules": {
         "@typescript-eslint/no-explicit-any": "error",
-        "linebreak-style": ["error", "unix"],
+        "linebreak-style": "off",
         "quotes": ["error", "single"],
         "semi": ["error", "never"],
         "no-console": ["warn", { "allow": ["warn", "error"] }],
