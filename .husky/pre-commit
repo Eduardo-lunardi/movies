@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+DIFF=`git diff --name-only --staged --diff-filter=ACMRTUXB HEAD -- *.ts *.tsx`
+
+yarn lint:commit $DIFF

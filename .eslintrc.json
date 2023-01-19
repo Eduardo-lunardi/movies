@@ -29,8 +29,7 @@
     },
     "rules": {
         "@typescript-eslint/no-explicit-any": "error",
-        "indent": ["error", "tab"],
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": ["error", "unix"],
         "quotes": ["error", "single"],
         "semi": ["error", "never"],
         "no-console": ["warn", { "allow": ["warn", "error"] }],
