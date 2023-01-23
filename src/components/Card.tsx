@@ -6,11 +6,12 @@ interface IProps {
     filmDirector: string
     year: string
     country: string
+    onClick: React.MouseEventHandler<HTMLDivElement>
 }
 
 export default function Card(props: IProps): React.ReactElement {
     return (
-        <div className='movie-card'>
+        <div className='movie-card' onClick={props.onClick}>
             <div
                 style={{ backgroundImage: `url(${props.banner})` }}
                 className='movie-header'
@@ -23,15 +24,15 @@ export default function Card(props: IProps): React.ReactElement {
                 </div>
                 <div className='movie-info'>
                     <div className='info-section'>
-                        <label>Diretor</label>
+                        <label>Directed by </label>
                         <span>{props.filmDirector}</span>
                     </div>
                     <div className='info-section'>
-                        <label>Ano</label>
+                        <label>Year</label>
                         <span>{props.year}</span>
                     </div>
                     <div className='info-section'>
-                        <label>País</label>
+                        <label>Country</label>
                         <span>{props.country}</span>
                     </div>
                 </div>
