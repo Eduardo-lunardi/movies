@@ -49,7 +49,7 @@ export default function Filters(props: IProps): React.ReactElement {
         <ol className="filters">
             <li onClick={(): void => check('az')}>
                 <label className={`${filter && filter.az !== undefined && 'check'}`}>
-                    A-Z {icons('az')}
+                    Title {icons('az')}
                 </label>
             </li>
             <li onClick={(): void => check('year')}>

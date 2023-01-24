@@ -1,12 +1,14 @@
-import { Card, Container, Filters, InfoMovie, Loader, Modal } from './components'
+import { Card, Container, Filters, InfoMovie, Input, Loader, Modal } from './components'
 import { IFilter, order } from './components/Filters'
 import { IOmdb } from './interfaces'
 import React from 'react'
 
 function App(): React.ReactElement {
   const [loading, setLoading] = React.useState(false)
+  const [loadingMore, setLoadingMore] = React.useState('')
   const [movies, setMovies] = React.useState<IOmdb[]>([])
   const [moreInfo, setMoreInfo] = React.useState<IOmdb>()
+  const [error, setError] = React.useState('')
 
   const idsMovies = [
     'tt1630029', // avatar 2
@@ -21,12 +23,12 @@ function App(): React.ReactElement {
   ]
 
   React.useEffect(() => {
-    // 'https://www.omdbapi.com?s='+ searchText +'&apikey=c243717'
-    setLoading(true)
     initialMovies()
   }, [])
 
   async function initialMovies(): Promise<void> {
+    setError('')
+    setLoading(true)
     const firstMovies: IOmdb[] = []
     for (let idx = 0; idx < idsMovies.length; idx++) {
       await fetch(`https://www.omdbapi.com?i=${idsMovies[idx]}&apikey=2b63372b`)
@@ -68,9 +70,41 @@ function App(): React.ReactElement {
     setMovies(newOrder)
   }
 
+  async function searchMovie(title: string): Promise<void> {
+    setError('')
+    setLoading(true)
+    setMovies([])
+    await fetch(`https://www.omdbapi.com?s=${title}&apikey=2b63372b&type=movie`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.Error) {
+          setError(data.Error)
+        } else {
+          setMovies(data.Search)
+        }
+      })
+      .finally(() => setLoading(false))
+  }
+
+  async function byId(id: string): Promise<void> {
+    setLoadingMore(id)
+    await fetch(`https://www.omdbapi.com?i=${id}&apikey=2b63372b&type=movie`)
+      .then(response => response.json())
+      .then(data => setMoreInfo(data))
+      .finally(() => setLoadingMore(''))
+  }
+
+
   return (
     <Container>
+      <Input
+        onChange={(e): void => { searchMovie(e) }}
+        onClear={initialMovies}
+        disabled={loading}
+        placeholder='Type any movie title'
+      />
       <Filters onClick={(e, t): void => order(e, t)} />
+      {!!error && error}
       <Modal show={!!moreInfo} onClose={(): void => setMoreInfo(undefined)}>
         {!!moreInfo &&
           <InfoMovie
@@ -88,13 +122,14 @@ function App(): React.ReactElement {
       {loading && <Loader />}
       {movies.map(movie =>
         <Card
-          onClick={(): void => setMoreInfo(movie)}
+          onClick={(): void => { byId(movie.imdbID) }}
           title={movie.Title}
           banner={movie.Poster}
           country={movie.Country}
           filmDirector={movie.Director}
           year={movie.Year}
-          key={movie.Title}
+          key={movie.imdbID}
+          loading={loadingMore === movie.imdbID}
         />
       )}
     </Container>
