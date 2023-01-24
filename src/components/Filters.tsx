@@ -1,31 +1,34 @@
 import React from 'react'
 
-interface IFilter {
-    az?: string
-    year?: 'desc' | 'cres' | undefined
-    country?: 'desc' | 'cres' | undefined
+export type order = 'az' | 'year' | 'country'
+type typeOrder = 'desc' | 'cres' | undefined
+
+export interface IFilter {
+    az?: typeOrder
+    year?: typeOrder
+    country?: typeOrder
 }
 
 interface IProps {
-    onClick: (e: IFilter) => void
+    onClick: (e: IFilter, type: order) => void
 }
 
 export default function Filters(props: IProps): React.ReactElement {
 
     const [filter, setFilter] = React.useState<IFilter>({ az: undefined, year: undefined, country: undefined })
 
-    function check(type: 'az' | 'year' | 'country'): void {
+    function check(type: order): void {
         const value = { ...filter }
         if (value[type] === 'cres')
             value[type] = 'desc'
         else if (value[type] === 'desc')
             value[type] = undefined
         else value[type] = 'cres'
-        props.onClick(value)
+        props.onClick(value, type)
         setFilter(value)
     }
 
-    function icons(type: 'az' | 'year' | 'country'): React.ReactElement {
+    function icons(type: order): React.ReactElement {
         if (!filter[type]) return <></>
         return <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" width="8px" height="8px" viewBox="0 0 292.362 292.361" xmlSpace="preserve">
             <g>

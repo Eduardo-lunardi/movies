@@ -41,8 +41,10 @@
 
 .movie-content-header,
 .movie-info {
-    display: table;
+    display: flex;
     width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .movie-title {
@@ -56,9 +58,9 @@
 }
 
 .info-section {
-    display: table-cell;
     text-transform: uppercase;
     text-align: center;
+    max-width: 40%;
 }
 
 .info-section:first-of-type {
