@@ -1,0 +1,38 @@
+.filters {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    padding-inline-start: unset;
+
+    li:not(:last-child) {
+        margin-right: $base-spacing;
+    }
+    label {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.25rem;
+        border-radius: 2rem;
+        min-width: 50px;
+        line-height: normal;
+        cursor: pointer;
+        transition: all 0.1s;
+        &:hover {
+            background: $green;
+            color: $white;
+        }
+    }
+    svg {
+        fill: $white;
+        margin-left: 4px;
+    }
+}
+
+.check {
+    background: $green;
+    color: $white;
+}
+
+.filters * {
+    display: inline-block;
+}

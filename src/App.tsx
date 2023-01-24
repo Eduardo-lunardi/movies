@@ -1,4 +1,4 @@
-import { Card, Container, InfoMovie, Modal } from './components'
+import { Card, Container, Filters, InfoMovie, Modal } from './components'
 import React from 'react'
 
 function App(): React.ReactElement {
@@ -11,17 +11,7 @@ function App(): React.ReactElement {
 
   return (
     <Container>
-      <ol className="filters">
-        <li>
-          <label htmlFor="All">A-Z</label>
-        </li>
-        <li>
-          <label htmlFor="CSS">Ano</label>
-        </li>
-        <li>
-          <label htmlFor="JavaScript">País</label>
-        </li>
-      </ol>
+      <Filters onClick={(e): void => console.log(e)} />
       <Modal show={show} onClose={(): void => setShow(!show)}>
         <InfoMovie
           actors={movie.Actors.split(',')}

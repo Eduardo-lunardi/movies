@@ -16,10 +16,10 @@ export default function InfoMovie(props: IProps): React.ReactElement {
             <div className="movie__data" id="movie-data" >
                 <div className="movie__poster">
                     <span className="movie__poster--fill">
-                        <img src={`${props.poster}`} />
+                        <img src={`${props.poster}`} alt='poster' />
                     </span>
                     <span className="movie__poster--featured">
-                        <img src={`${props.poster}`} />
+                        <img src={`${props.poster}`} alt='poster' />
                     </span>
                 </div>
                 <div className="movie__details">
