@@ -29,7 +29,7 @@ function App(): React.ReactElement {
   async function initialMovies(): Promise<void> {
     const firstMovies: IOmdb[] = []
     for (let idx = 0; idx < idsMovies.length; idx++) {
-      await fetch(`https://www.omdbapi.com?i=${idsMovies[idx]}&apikey=c243717`)
+      await fetch(`https://www.omdbapi.com?i=${idsMovies[idx]}&apikey=2b63372b`)
         .then(response => response.json())
         .then(data => { firstMovies.push(data) })
     }
