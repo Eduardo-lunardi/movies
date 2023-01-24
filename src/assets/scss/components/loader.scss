@@ -1,0 +1,40 @@
+.loader {
+    &__text {
+        margin: 5px auto;
+        color: $color-primary;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 900;
+    }
+    &__filmstrip {
+        position: relative;
+        max-width: 70px;
+        height: 70px;
+        background: $color-primary;
+        z-index: 1;
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            margin-top: 10px;
+            border-left: 5px dashed $color-secondary;
+            animation: roll 20ms infinite;
+        }
+        &:before {
+            left: 5px;
+        }
+        &:after {
+            right: 5px;
+        }
+    }
+}
+
+@keyframes roll {
+    0% {
+        top: 0px;
+    }
+    100% {
+        top: -15px;
+    }
+}

@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Arimo:400,700");
 
 $text-color: #010b26;
-$white: #fff;
+$white: #ffffff;
+$white-1: #e9e9e9;
 $green: #49b293;
+$color-primary: #3d314a;
+$color-secondary: #f5f1ed;
 $base-spacing: 12px;
 $base-radius: 0.8em;
 $poster-width: 140px;
@@ -12,9 +15,31 @@ $bp-sm: 400px;
 
 body {
 	height: 100%;
-	background: #e9e9e9;
+	background: $white-1;
 	font-family: "Arimo", Arial, sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	color: #010b26;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+	scrollbar-width: auto;
+	scrollbar-color: $white-1 $white;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+	width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+	background: $white;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: $white-1;
+	border-radius: 10px;
+	border: 3px solid $white;
 }
